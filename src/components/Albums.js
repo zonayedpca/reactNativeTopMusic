@@ -8,12 +8,17 @@ import Album from './Album';
 
 class Albums extends Component {
   state = {
-    albums: ''
+    albums: '',
+    error: ''
   }
 
   getAlbum = async() => {
-    const { data: { topalbums: { album: albums } } } = await axios(`http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=linkinpark&api_key=${API_KEY}&format=json&limit=25`);
-    this.setState({ albums });
+    try {
+      const { data: { topalbums: { album: albums } } } = await axios(`http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=linkinpark&api_key=${API_KEY}&format=json&limit=25`);
+      this.setState({ albums });
+    } catch(err) {
+      this.setState({ error: 'Something went wrong!' })
+    }
   }
 
   componentWillMount() {
@@ -21,7 +26,12 @@ class Albums extends Component {
   }
 
   renderAlbums = () => {
-    const { albums } = this.state;
+    const { albums, error } = this.state;
+    if(error) {
+      return (
+        <Text>{error}</Text>
+      )
+    }
     if(!albums) {
       return (
         <Text>Loading..</Text>
