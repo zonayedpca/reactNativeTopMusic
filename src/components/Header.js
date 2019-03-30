@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Linking } from 'react-native';
 
 import { Button } from './common';
 
@@ -12,7 +12,7 @@ const Header = () => {
         <Text style={textStyle}>Discover Top Music From Here</Text>
       </View>
       <View>
-        <Button>Source</Button>
+        <Button onPress={() => Linking.openURL('https://github.com/zonayedpca/reactNativeTopMusic')}>Source</Button>
       </View>
     </View>
   )
