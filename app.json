@@ -24,6 +24,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "A Simple Music Listing App",
+    "githubUrl": "https://github.com/zonayedpca/reactNativeTopMusic"
   }
 }

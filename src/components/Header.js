@@ -12,7 +12,7 @@ const Header = () => {
         <Text style={textStyle}>Discover Top Music From Here</Text>
       </View>
       <View>
-        <Button onPress={() => Linking.openURL('https://github.com/zonayedpca/reactNativeTopMusic')}>Source</Button>
+        <Button onPress={() => Linking.openURL(`https://github.com/zonayedpca/reactNativeTopMusic`)}>Source</Button>
       </View>
     </View>
   )
